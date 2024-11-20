@@ -86,7 +86,7 @@ export function SteamBadge(props: Props) {
             margin-top:15px;
             }
             .status {
-            font-size: 14px;
+            font-size: 12px;
             color: #00adee;
             font-weight: 100;
             }
