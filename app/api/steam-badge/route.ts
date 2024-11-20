@@ -14,9 +14,8 @@ export async function GET(request: NextRequest) {
     if (!data) {
       return Response.json({ error: "Player not found" }, { status: 404 });
     }
-    
     return Response.json({ data });
   } catch (error) {
-    return Response.json({ error: 'Something went wrong' }, { status: 500 });
+    return Response.json({ error: "Something went wrong" }, { status: 500 });
   }
 }

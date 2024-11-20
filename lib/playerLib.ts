@@ -18,3 +18,12 @@ export async function fetchPlayerSummary(steamId: string | null): Promise<Player
         return undefined
       }
 }
+
+
+export async function convertImageToBase64(imageUrl: string): Promise<string> {
+  const response = await fetch(imageUrl);
+  const blob = await response.arrayBuffer();
+  const buffer = Buffer.from(blob)
+  const base64 = buffer.toString('base64')
+  return 'data:image/png;base64,' + base64
+}

@@ -1,59 +1,130 @@
 import React from "react";
-import {PlayerSummaryType} from '../types';
-
+import { PlayerSummaryType, AdditionalPlayerSummaryType } from "../types";
 
 type Props = {
-    playerSummary: PlayerSummaryType | undefined;
-}
-const width = 540
-const height = 180
+  playerSummary: (PlayerSummaryType & AdditionalPlayerSummaryType) | undefined;
+};
+const width = 540;
+const height = 180;
 
-export function SteamBadge(props:Props) {
-
-
-
-  if(!props.playerSummary) {
-    return <svg
-    fill="none"
-    width={width}
-    height={height}
-    viewBox={`0 0 ${width} ${height}`}
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <foreignObject width={width} height={height}>
-      <main >
-      {/* <Image src={bg} alt={'carbon background'} fill={true} className="z-1" />  */}
-      <div className={'relative z-10 flex items-center'}>
-      <p className={'text-white text-lg'}>Player not found</p>
-      </div>
-      </main>
-      </foreignObject>
+export function SteamBadge(props: Props) {
+  if (!props.playerSummary) {
+    return (
+      <svg
+        fill="none"
+        width={width}
+        height={height}
+        viewBox={`0 0 ${width} ${height}`}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <foreignObject width={width} height={height}>
+          <main {...{ xmlns: "http://www.w3.org/1999/xhtml" }}>
+            <div>
+              <p>Player not found</p>
+            </div>
+          </main>
+        </foreignObject>
       </svg>
+    );
   }
-  return <svg
-  fill="none"
-  width={width}
-  height={height}
-  viewBox={`0 0 ${width} ${height}`}
-  xmlns="http://www.w3.org/2000/svg"
->
-  <foreignObject width={width} height={height}>
-    <style>{`
-
-    `}
-    </style>
-    <div  {...{ xmlns: 'http://www.w3.org/1999/xhtml' }}>
-    {/* <Image src={bg} alt={'carbon background'} fill={true} className="z-1" />  */}
-    <div>
-    {/* <img src={props.playerSummary.avatarfull} alt={'avatar'} /> */}
-    <div>
-    <p>{props.playerSummary.personaname}</p>
-    </div>
-    </div>
-    </div>
-    </foreignObject>
+  return (
+    <svg
+      fill="none"
+      width={width}
+      height={height}
+      viewBox={`0 0 ${width} ${height}`}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <foreignObject width={width} height={height}>
+        <style>
+          {`
+          p {
+            margin: 0;
+          }
+          .container {
+            background-color: #171a21;
+            color: #ecf0f1;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            height:max-content;
+            border-radius: 10px;
+          }
+          .content {
+            display: flex;
+            padding:10px 10px;
+          }
+          .avatar {
+            border: 2px solid #1b2838;
+            width: 80px;
+            height: 80px;
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+          }
+          .profile__data {
+            margin-left: 20px;
+          }
+          .name {
+            font-size: 24px;
+            color: #00adee;
+            }
+            .game__status {
+            margin-top:15px;
+            }
+            .status {
+            font-size: 14px;
+            color: #00adee;
+            font-weight: 100;
+            }
+            .playing {
+            color:#B4E61D;
+            }
+            .game {
+            color:#A4D007;
+            }
+            .offline {
+            color: gray;
+          }
+          `}
+        </style>
+        <main
+          className="container"
+          {...{ xmlns: "http://www.w3.org/1999/xhtml" }}
+        >
+          <div className="content">
+            {props.playerSummary.profileImageBase64 && (
+              <img
+                className="avatar"
+                src={props.playerSummary.profileImageBase64}
+                alt={"avatar"}
+              />
+            )}
+            <aside className="profile__data">
+              <p
+                className={`name ${
+                  props.playerSummary.status === "Offline" && "offline"
+                }`}
+              >
+                {props.playerSummary.personaname}
+              </p>
+              {props.playerSummary.status &&
+                !props.playerSummary.gameextrainfo && (
+                  <p
+                    className={`status ${
+                      props.playerSummary.status === "Offline" && "offline"
+                    }`}
+                  >
+                    {props.playerSummary.status}
+                  </p>
+                )}
+              {props.playerSummary.gameextrainfo && (
+                <div className={"game__status"}>
+                  <p className="playing">In Game</p>
+                  <p className="game">{props.playerSummary.gameextrainfo}</p>
+                </div>
+              )}
+            </aside>
+          </div>
+        </main>
+      </foreignObject>
     </svg>
+  );
 }
-
-
-
