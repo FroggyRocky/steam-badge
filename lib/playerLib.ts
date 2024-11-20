@@ -5,7 +5,7 @@ export async function fetchPlayerSummary(steamId: string | null): Promise<Player
     //use server
     if (!steamId) undefined
     try {
-        let res = await fetch(
+        const res = await fetch(
           `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=${process.env.STEAM_API_KEY}&steamids=${steamId}`
         );
         const result: GetPlayerSummaryResponse = await res.json();

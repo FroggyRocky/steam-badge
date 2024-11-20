@@ -49,6 +49,7 @@ export async function GET(request: NextRequest) {
       },
     });
   } catch (error) {
+    
     return Response.json({ error: "Something went wrong" }, { status: 500 });
   }
 }
