@@ -1,6 +1,6 @@
 import React from "react";
 import { PlayerSummaryType, AdditionalPlayerSummaryType } from "../types";
-
+import { SteamLogo } from "./SteamLogo";
 type Props = {
   playerSummary: (PlayerSummaryType & AdditionalPlayerSummaryType) | undefined;
 };
@@ -18,7 +18,8 @@ export function SteamBadge(props: Props) {
         xmlns="http://www.w3.org/2000/svg"
       >
         <foreignObject width={width} height={height}>
-          <style>{`
+          <style>
+            {`
           main {
           width: 100%;
           }
@@ -56,11 +57,18 @@ export function SteamBadge(props: Props) {
             height:max-content;
             width: 100%;
             border-radius: 10px;
+            position: relative;
           }
           .content {
             display: flex;
             padding:10px 10px;
           }
+            .steamLogo {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 20;
+            }
           .avatar {
             border: 2px solid #1b2838;
             width: 80px;
@@ -94,10 +102,14 @@ export function SteamBadge(props: Props) {
           }
           `}
         </style>
+
         <main
           className="container"
           {...{ xmlns: "http://www.w3.org/1999/xhtml" }}
         >
+          <aside className="steamLogo">
+            <SteamLogo />
+          </aside>
           <div className="content">
             {props.playerSummary.profileImageBase64 && (
               <img
