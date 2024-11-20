@@ -18,6 +18,13 @@ export function SteamBadge(props: Props) {
         xmlns="http://www.w3.org/2000/svg"
       >
         <foreignObject width={width} height={height}>
+          <style>{`
+          main {
+          width: 100%;
+          }
+
+          `}
+          </style>
           <main {...{ xmlns: "http://www.w3.org/1999/xhtml" }}>
             <div>
               <p>Player not found</p>
@@ -47,6 +54,7 @@ export function SteamBadge(props: Props) {
             font-family: Arial, sans-serif;
             font-size: 16px;
             height:max-content;
+            width: 100%;
             border-radius: 10px;
           }
           .content {

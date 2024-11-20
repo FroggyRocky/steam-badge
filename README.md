@@ -4,7 +4,22 @@ This makes it easy to display your Steam activity on websites, blogs, forums, an
 
 If you want to share your love for gaming with the world, Steam Status Badge is the way to go! ❤️🎮
 
-<img src="http://localhost:3000/api/steam-badge.svg?steamId=76561199388121132" alt="Steam Status Badge" width="540" height="52" />
+<img src="https://steam-badge.vercel.app/api/steam-badge.svg?steamId=76561199388121132" alt="Steam Status Badge" width="540" height="52" />
+
+## How to Use
+
+tag with your steam id as a query parameter:
+
+```bash
+<img src="https://steam-badge.vercel.app/api/steam-badge.svg?steamId=<your_steam_id>" alt="Steam Status Badge" width="540" height="52" />
+```
+Using Steam Id is absolutely safe. Anybody can check someone's steam id, if the steam profile is public. 
+
+# How to Find Profile's Steam Id
+
+To find your Steam Id is simple, just navigate to your profile and in the url section you will see a numerical url parameter, this is your Steam I
+ 
+![alt text](image.png)
 
 ## Getting Started
 
@@ -20,10 +35,3 @@ npm run dev
 ```bash
 npm run build
 ```
-
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
