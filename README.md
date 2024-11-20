@@ -8,7 +8,7 @@ If you want to share your love for gaming with the world, Steam Status Badge is 
 
 ## How to Use
 
-tag with your steam id as a query parameter:
+Add a img tag with your steam id as a query parameter:
 
 ```bash
 <img src="https://steam-badge.vercel.app/api/steam-badge.svg?steamId=<your_steam_id>" alt="Steam Status Badge"  />
