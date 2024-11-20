@@ -4,7 +4,7 @@ This makes it easy to display your Steam activity on websites, blogs, forums, an
 
 If you want to share your love for gaming with the world, Steam Status Badge is the way to go! ❤️🎮
 
-<img src="https://steam-badge.vercel.app/api/steam-badge.svg?steamId=76561199388121132" alt="Steam Status Badge" width="540" height="52" />
+<img src="https://steam-badge.vercel.app/api/steam-badge.svg?steamId=76561199388121132" alt="Steam Status Badge" />
 
 ## How to Use
 
