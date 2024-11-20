@@ -11,7 +11,7 @@ If you want to share your love for gaming with the world, Steam Status Badge is 
 tag with your steam id as a query parameter:
 
 ```bash
-<img src="https://steam-badge.vercel.app/api/steam-badge.svg?steamId=<your_steam_id>" alt="Steam Status Badge" width="540" height="52" />
+<img src="https://steam-badge.vercel.app/api/steam-badge.svg?steamId=<your_steam_id>" alt="Steam Status Badge"  />
 ```
 Using Steam Id is absolutely safe. Anybody can check someone's steam id, if the steam profile is public. 
 

@@ -5,7 +5,7 @@ type Props = {
   playerSummary: (PlayerSummaryType & AdditionalPlayerSummaryType) | undefined;
 };
 const width = 540;
-const height = 180;
+const height = 120;
 
 export function SteamBadge(props: Props) {
   if (!props.playerSummary) {
@@ -87,6 +87,7 @@ export function SteamBadge(props: Props) {
             }
             .game {
             color:#A4D007;
+            opacity:0.9;
             }
             .offline {
             color: gray;
@@ -125,7 +126,7 @@ export function SteamBadge(props: Props) {
                 )}
               {props.playerSummary.gameextrainfo && (
                 <div className={"game__status"}>
-                  <p className="playing">In Game</p>
+                  <p className="playing">In Game:</p>
                   <p className="game">{props.playerSummary.gameextrainfo}</p>
                 </div>
               )}
