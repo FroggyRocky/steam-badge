@@ -1,6 +1,6 @@
 ## Steam Status Badge
 Steam Status Badge is a project that allows you to share your Steam status and the game you are currently playing by simply using an `<img>` tag within any HTML-readable space.
-This makes it easy to display your Steam activity on websites, blogs, forums, and more. 🌐
+This makes it easy to display your Steam activity on README.md file within your github profile, websites, blogs, forums, and more. 🌐
 
 If you want to share your love for gaming with the world, Steam Status Badge is the way to go! ❤️🎮
 
@@ -17,9 +17,8 @@ Using Steam Id is absolutely safe. Anybody can check someone's steam id, if the 
 
 # How to Find Profile's Steam Id
 
-To find your Steam Id is simple, just navigate to your profile and in the url section you will see a numerical url parameter, this is your Steam I
+To find your Steam Id is simple, just navigate to your profile and in the url section you will see a numerical url parameter, this is your Steam Id
  
-![alt text](image.png)
 
 ## Getting Started Locally
 
