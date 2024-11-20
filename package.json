@@ -1,5 +1,6 @@
 {
   "name": "steam-status-badge",
+  "keywords": ["steam", "steam-api", "gaming", "games", "status", "badge"],
   "version": "0.1.0",
   "private": true,
   "scripts": {
