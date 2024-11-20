@@ -18,7 +18,8 @@ Using Steam Id is absolutely safe. Anybody can check someone's steam id, if the 
 # How to Find Profile's Steam Id
 
 To find your Steam Id is simple, just navigate to your profile and in the url section you will see a numerical url parameter, this is your Steam Id
- 
+
+![alt text](https://github.com/FroggyRocky/steam-badge/blob/main/screenshots/steam-id.png)
 
 ## Getting Started Locally
 
