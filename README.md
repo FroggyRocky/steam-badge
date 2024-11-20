@@ -21,7 +21,7 @@ To find your Steam Id is simple, just navigate to your profile and in the url se
  
 ![alt text](image.png)
 
-## Getting Started
+## Getting Started Locally
 
 First, run the development server:
 
