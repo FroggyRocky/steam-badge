@@ -1,22 +1,20 @@
 const width = 20;
 const height = 20;
-
+const styles = {
+  icon: {
+    width: `${width}px`,
+    height: `${height}px`,
+    verticalAlign: "-0.125em",
+  }
+}
 export function SteamLogo() {
+  
   return (
     <div>
-      <style>
-        {`
-            .icon {
-            width: ${width}px;
-            height: ${height}px;
-            vertical-align: -0.125em;
-            }
-            `}
-      </style>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 496 512"
-        className="icon"
+        style={styles.icon}
         width={width}
         height={height}
       >

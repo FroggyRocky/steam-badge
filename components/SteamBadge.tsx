@@ -1,11 +1,69 @@
 import React from "react";
 import { PlayerSummaryType, AdditionalPlayerSummaryType } from "../types";
 import { SteamLogo } from "./SteamLogo";
+
 type Props = {
   playerSummary: (PlayerSummaryType & AdditionalPlayerSummaryType) | undefined;
 };
+
 const width = 540;
 const height = 120;
+
+const styles = {
+  badgeContainer: {
+    backgroundColor: "#171a21",
+    color: "#ecf0f1",
+    fontFamily: "Arial, sans-serif",
+    fontSize: "16px",
+    height: "max-content",
+    width: "100%",
+    borderRadius: "10px",
+  },
+  badgeContent: {
+    display: "flex",
+    padding: "10px 10px",
+  },
+  badgeSteamLogo: {
+    position: "absolute" as "absolute",
+    top: "10px",
+    right: "10px",
+    zIndex: 20,
+  },
+  badgeAvatar: {
+    border: "2px solid #1b2838",
+    width: "80px",
+    height: "80px",
+    boxShadow: "rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px",
+  },
+  badgeProfile: {
+    marginLeft: "20px",
+  },
+  badgeName: {
+    fontSize: "24px",
+    color: "#00adee",
+  },
+  badgeNameOffline: {
+    color: "gray",
+  },
+  badgeStatus: {
+    fontSize: "12px",
+    color: "#00adee",
+    fontWeight: 100,
+  },
+  badgeStatusOffline: {
+    color: "gray",
+  },
+  badgeGameContainer: {
+    marginTop: "15px",
+  },
+  badgeGameHeader: {
+    color: "#b4e61d",
+  },
+  badgeGameName: {
+    color: "#a4d007",
+    opacity: 0.9,
+  },
+};
 
 export function SteamBadge(props: Props) {
   if (!props.playerSummary) {
@@ -18,15 +76,7 @@ export function SteamBadge(props: Props) {
         xmlns="http://www.w3.org/2000/svg"
       >
         <foreignObject width={width} height={height}>
-          <style>
-            {`
-          main {
-          width: 100%;
-          }
-
-          `}
-          </style>
-          <main {...{ xmlns: "http://www.w3.org/1999/xhtml" }}>
+          <main {...{ xmlns: "http://www.w3.org/1999/xhtml" }} style={styles.badgeContainer}>
             <div>
               <p>Player not found</p>
             </div>
@@ -44,101 +94,42 @@ export function SteamBadge(props: Props) {
       xmlns="http://www.w3.org/2000/svg"
     >
       <foreignObject width={width} height={height}>
-        <style>
-          {`
-          p {
-            margin: 0;
-          }
-          .container {
-            background-color: #171a21;
-            color: #ecf0f1;
-            font-family: Arial, sans-serif;
-            font-size: 16px;
-            height:max-content;
-            width: 100%;
-            border-radius: 10px;
-            position: relative;
-          }
-          .content {
-            display: flex;
-            padding:10px 10px;
-          }
-            .steamLogo {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 20;
-            }
-          .avatar {
-            border: 2px solid #1b2838;
-            width: 80px;
-            height: 80px;
-            box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
-          }
-          .profile__data {
-            margin-left: 20px;
-          }
-          .name {
-            font-size: 24px;
-            color: #00adee;
-          }
-            .game__container {
-            margin-top:15px;
-          }
-            .status {
-            font-size: 12px;
-            color: #00adee;
-            font-weight: 100;
-          }
-            .game__header {  
-            color:#B4E61D;
-          }
-            .game__game {
-            color:#A4D007;
-            opacity:0.9;
-          }
-            .offline {
-            color: gray;
-          }
-          `}
-        </style>
-        <main
-          className="container"
-          {...{ xmlns: "http://www.w3.org/1999/xhtml" }}
-        >
-          <aside className="steamLogo">
+        <main {...{ xmlns: "http://www.w3.org/1999/xhtml" }} style={styles.badgeContainer}>
+          <aside style={styles.badgeSteamLogo}>
             <SteamLogo />
           </aside>
-          <div className="content">
+          <div style={styles.badgeContent}>
             {props.playerSummary.profileImageBase64 && (
               <img
-                className="avatar"
+                style={styles.badgeAvatar}
                 src={props.playerSummary.profileImageBase64}
                 alt={"avatar"}
               />
             )}
-            <aside className="profile__data">
+            <aside style={styles.badgeProfile}>
               <p
-                className={`name ${
-                  props.playerSummary.status === "Offline" && "offline"
-                }`}
+                style={{
+                  ...styles.badgeName,
+                  ...(props.playerSummary.status === "Offline" && styles.badgeNameOffline),
+                }}
               >
                 {props.playerSummary.personaname}
               </p>
               {props.playerSummary.status &&
                 !props.playerSummary.gameextrainfo && (
                   <p
-                    className={`status ${
-                      props.playerSummary.status === "Offline" && "offline"
-                    }`}
+                    style={{
+                      ...styles.badgeStatus,
+                      ...(props.playerSummary.status === "Offline" && styles.badgeStatusOffline),
+                    }}
                   >
                     {props.playerSummary.status}
                   </p>
                 )}
               {props.playerSummary.gameextrainfo && (
-                <div className={"game__container"}>
-                  <p className="game__header">In Game:</p>
-                  <p className="game__game">
+                <div style={styles.badgeGameContainer}>
+                  <p style={styles.badgeGameHeader}>In Game:</p>
+                  <p style={styles.badgeGameName}>
                     {props.playerSummary.gameextrainfo}
                   </p>
                 </div>
