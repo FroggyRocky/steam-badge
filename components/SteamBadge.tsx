@@ -81,28 +81,27 @@ export function SteamBadge(props: Props) {
           .name {
             font-size: 24px;
             color: #00adee;
-            }
-            .game__status {
+          }
+            .game__container {
             margin-top:15px;
-            }
+          }
             .status {
             font-size: 12px;
             color: #00adee;
             font-weight: 100;
-            }
-            .playing {
+          }
+            .game__header {  
             color:#B4E61D;
-            }
-            .game {
+          }
+            .game__game {
             color:#A4D007;
             opacity:0.9;
-            }
+          }
             .offline {
             color: gray;
           }
           `}
         </style>
-
         <main
           className="container"
           {...{ xmlns: "http://www.w3.org/1999/xhtml" }}
@@ -137,9 +136,11 @@ export function SteamBadge(props: Props) {
                   </p>
                 )}
               {props.playerSummary.gameextrainfo && (
-                <div className={"game__status"}>
-                  <p className="playing">In Game:</p>
-                  <p className="game">{props.playerSummary.gameextrainfo}</p>
+                <div className={"game__container"}>
+                  <p className="game__header">In Game:</p>
+                  <p className="game__game">
+                    {props.playerSummary.gameextrainfo}
+                  </p>
                 </div>
               )}
             </aside>

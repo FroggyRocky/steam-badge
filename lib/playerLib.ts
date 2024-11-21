@@ -8,6 +8,9 @@ export async function fetchPlayerSummary(steamId: string | null): Promise<Player
         const res = await fetch(
           `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=${process.env.STEAM_API_KEY}&steamids=${steamId}`
         );
+        if(!res.ok) {
+          return undefined
+        }
         const result: GetPlayerSummaryResponse = await res.json();
         const data = result.response.players[0];
         if (!data) {
