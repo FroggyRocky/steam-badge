@@ -24,11 +24,11 @@ const styles = {
     padding: "10px 10px",
   },
   badgeSteamLogo: {
-    position: "absolute" as "absolute",
+    position: "absolute",
     top: "10px",
     right: "10px",
     zIndex: 20,
-  },
+  } as React.CSSProperties,
   badgeAvatar: {
     border: "2px solid #1b2838",
     width: "80px",
@@ -41,6 +41,7 @@ const styles = {
   badgeName: {
     fontSize: "24px",
     color: "#00adee",
+    margin:0
   },
   badgeNameOffline: {
     color: "gray",
@@ -49,6 +50,7 @@ const styles = {
     fontSize: "12px",
     color: "#00adee",
     fontWeight: 100,
+    margin:0
   },
   badgeStatusOffline: {
     color: "gray",
@@ -58,12 +60,14 @@ const styles = {
   },
   badgeGameHeader: {
     color: "#b4e61d",
+    margin:0
   },
   badgeGameName: {
     color: "#a4d007",
     opacity: 0.9,
+    margin:0
   },
-};
+} 
 
 export function SteamBadge(props: Props) {
   if (!props.playerSummary) {
